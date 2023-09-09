@@ -2,6 +2,7 @@ from utils.functions import get_executed_operations, Transaction
 
 
 def test_get_executed_operations_single_executed_transaction():
+    # проверка функции когда есть только одна транзакция и ее состояние соответствует target_state.
     target_state = "EXECUTED"
     transactions = [
         Transaction(id=1, state=target_state, date="", amount="", currency="",
@@ -12,6 +13,7 @@ def test_get_executed_operations_single_executed_transaction():
 
 
 def test_get_executed_operations_multiple_transactions():
+    # проверка функции когда в списке несколько транзакций одни из которых имеют состояние target_state, а другие - нет.
     target_state = "EXECUTED"
     transactions = [
         Transaction(id=1, state=target_state, date="", amount="", currency="",

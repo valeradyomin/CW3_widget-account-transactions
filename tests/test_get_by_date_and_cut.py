@@ -4,6 +4,7 @@ from utils.functions import get_by_date_and_cut, Transaction
 
 
 def test_get_by_date_and_cut():
+    # проверка функции которая отбирает транзакции из списка на основе их даты и возвращает новый список.
     executed_lst = [
         Transaction(id=1, state="", date="2023-09-09", amount=100, currency="",
                     description="", from_account="", to_account=""),
@@ -21,4 +22,3 @@ def test_get_by_date_and_cut():
     assert selected_operations_lst[1].id == 2
     with pytest.raises(IndexError):
         assert selected_operations_lst[2].date == "2023-09-07"
-
