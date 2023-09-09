@@ -28,3 +28,11 @@ def get_transaction_objs(data: list):
         )
         transactions.append(transaction)
     return transactions
+
+
+def get_executed_operations(transactions: list, target_state: str):
+    executed_lst = []
+    for transaction in transactions:
+        if target_state == transaction.state:
+            executed_lst.append(transaction)
+    return executed_lst
