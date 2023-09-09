@@ -43,3 +43,16 @@ def get_by_date_and_cut(executed_lst: list, items_cut: int):
     selected_operations_lst = executed_lst_sorted[0:items_cut]
     return selected_operations_lst
 
+
+def get_masked(item):
+    if item is None:
+        return "Открытие вклада"
+
+    if "Счет" in item:
+        tail = item[len(item.rstrip('0123456789')):]
+        new_tail = f"{(len(tail) - 18) * '*'}{tail[-4:]}"
+    else:
+        tail = item[len(item.rstrip('0123456789')):]
+        new_tail = f"{tail[0:4]} {tail[4:6]}** **** {tail[12:16]}"
+
+    return f"{item.rstrip('0123456789')}{new_tail}"
