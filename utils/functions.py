@@ -36,3 +36,10 @@ def get_executed_operations(transactions: list, target_state: str):
         if target_state == transaction.state:
             executed_lst.append(transaction)
     return executed_lst
+
+
+def get_by_date_and_cut(executed_lst: list, items_cut: int):
+    executed_lst_sorted = sorted(executed_lst, key=lambda x: x.date, reverse=True)
+    selected_operations_lst = executed_lst_sorted[0:items_cut]
+    return selected_operations_lst
+
